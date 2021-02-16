@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import agent from '../agent';
 import { connect } from 'react-redux';
 import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes';
+import Button from 'react-bootstrap/Button';
 
-const FAVORITED_CLASS = 'btn btn-sm btn-primary';
-const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
+const FAVORITED_CLASS = 'primary';
+const NOT_FAVORITED_CLASS = 'warning';
 
 const mapDispatchToProps = dispatch => ({
   favorite: slug => dispatch({
@@ -50,9 +51,9 @@ const ArticlePreview = props => {
         </div>
 
         <div className="pull-xs-right">
-          <button className={favoriteButtonClass} onClick={handleClick}>
+          <Button variant={favoriteButtonClass} onClick={handleClick}>
             <i className="ion-heart"></i> {article.favoritesCount}
-          </button>
+          </Button>
         </div>
       </div>
 
